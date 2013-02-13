@@ -1,13 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>Âş»­¸Ä±àJqueryÇ°¶ËÉè¼Æ¸¨Öú¹¤¾ß - Jquery-school</title>
-<meta name="author" content="Jquery-School" />
-<meta name="Copyright" content="Jquery-School,www.jq-school.com" />
-<meta name="keywords" content="Jquery,Jquery×ÊÔ´,Ç°¶ËÉè¼Æ,div+css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ToolBox - A tool help you optimize the css/js files</title>
+<meta name="author" content="Xider" />
+<meta name="keywords" content="CSS,JS,Optimize" />
 <meta name="description" content="" />
-<script type="text/javascript" src="http://www.jq-school.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <style>
 h3{ font-family:"Arial"; font-size:30px; color:#666; margin:20px 0 10px 0; text-shadow:2px 2px #fff;}
 #content{ font-size:12px; border-radius: 2px; border:1px solid #bbb; *border-color:#bbb #e9e9e9 #e9e9e9 #bbb; color:#325AA3; box-shadow:0 0 5px #ddd inset; overflow:auto;width:900px; height:400px;  padding:5px; background-color:#fff; margin:5px 0;}
@@ -27,9 +27,9 @@ $(document).ready(function(){
 	$("#btn").click(function(){
 		var packer = new Packer;
 		var c = $("#content").val();	
-		if (c.length<=0 || c=="ÇëÊäÈëÄÚÈİ")
+		if (c.length<=0 || c=="è¯·è¾“å…¥å†…å®¹")
 		{
-			$("#content").val("ÇëÊäÈëÄÚÈİ");
+			$("#content").val("è¯·è¾“å…¥å†…å®¹");
 			
 		}else{
 			var v = packer.pack(c, true, true);
@@ -46,9 +46,9 @@ $(document).ready(function(){
 	
 	$("#btnDecode").click(function(){
 		var c = $("#content").val();	
-		if (c.length<=0 || c=="ÇëÊäÈëÄÚÈİ")
+		if (c.length<=0 || c=="è¯·è¾“å…¥å†…å®¹")
 		{
-			$("#content").val("ÇëÊäÈëÄÚÈİ");
+			$("#content").val("è¯·è¾“å…¥å†…å®¹");
 			
 		}else{		
 			var r = eval(c.slice(4));		
@@ -75,14 +75,14 @@ $(document).ready(function(){
 	
 	$("#btnJSYS").click(function(){		
 		var c = $("#content").val();
-		if (c.length<=0 || c=="ÇëÊäÈëÄÚÈİ")
+		if (c.length<=0 || c=="è¯·è¾“å…¥å†…å®¹")
 		{
-			$("#content").val("ÇëÊäÈëÄÚÈİ");
+			$("#content").val("è¯·è¾“å…¥å†…å®¹");
 			
 		}else{
 			var v = jsmin("", c, 2);
 			$("#content").val(v);
-			alert("Ô­À´´óĞ¡"+jsmin.oldSize+" Ñ¹Ëõºó´óĞ¡£º"+jsmin.newSize+"  Ñ¹ËõÂÊÎª£º"+(Math.round(jsmin.newSize / jsmin.oldSize * 1000) / 10) + '%');
+			alert("åŸæ¥å¤§å°"+jsmin.oldSize+" å‹ç¼©åå¤§å°ï¼š"+jsmin.newSize+"  å‹ç¼©ç‡ä¸ºï¼š"+(Math.round(jsmin.newSize / jsmin.oldSize * 1000) / 10) + '%');
 		}
 	});
 	
@@ -98,21 +98,21 @@ $(document).ready(function(){
 
 <!--
     var lCSSCoder = {
-        format: function (s) {//¸ñÊ½»¯´úÂë
+        format: function (s) {//æ ¼å¼åŒ–ä»£ç 
             s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
-            s = s.replace(/;\s*;/g, ";"); //Çå³ıÁ¬Ğø·ÖºÅ
+            s = s.replace(/;\s*;/g, ";"); //æ¸…é™¤è¿ç»­åˆ†å·
             s = s.replace(/\,[\s\.\#\d]*{/g, "{");
             s = s.replace(/([^\s])\{([^\s])/g, "$1 {\n\t$2");
             s = s.replace(/([^\s])\}([^\n]*)/g, "$1\n}\n$2");
             s = s.replace(/([^\s]);([^\s\}])/g, "$1;\n\t$2");
             return s;
         },
-        pack: function (s) {//Ñ¹Ëõ´úÂë
-            s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //É¾³ı×¢ÊÍ
+        pack: function (s) {//å‹ç¼©ä»£ç 
+            s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //åˆ é™¤æ³¨é‡Š
             s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
-            s = s.replace(/\,[\s\.\#\d]*\{/g, "{"); //Èİ´í´¦Àí
-            s = s.replace(/;\s*;/g, ";"); //Çå³ıÁ¬Ğø·ÖºÅ
-            s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/); //È¥µôÊ×Î²¿Õ°×
+            s = s.replace(/\,[\s\.\#\d]*\{/g, "{"); //å®¹é”™å¤„ç†
+            s = s.replace(/;\s*;/g, ";"); //æ¸…é™¤è¿ç»­åˆ†å·
+            s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/); //å»æ‰é¦–å°¾ç©ºç™½
             return (s == null) ? "" : s[1];
         }
     };
@@ -129,24 +129,24 @@ $(document).ready(function(){
 <body>
 
 <div id="code">
-<h3>ÔÚÏßJS»ìÏı/½â»ìÏı¡¢JS¸ñÊ½»¯/Ñ¹Ëõ¡¢CSS¸ñÊ½»¯/Ñ¹Ëõ</h3>
+<h3>åœ¨çº¿JSæ··æ·†/è§£æ··æ·†ã€JSæ ¼å¼åŒ–/å‹ç¼©ã€CSSæ ¼å¼åŒ–/å‹ç¼©</h3>
 <textarea id="content">
 /* 
  *
- * Ìá¹©JS»ìÏı¡¢JS½â»ìÏı¡¢JSÑ¹Ëõ¡¢JS¸ñÊ½»¯¡¢CSS¸ñÊ½»¯¡¢CSSÑ¹Ëõ
+ * æä¾›JSæ··æ·†ã€JSè§£æ··æ·†ã€JSå‹ç¼©ã€JSæ ¼å¼åŒ–ã€CSSæ ¼å¼åŒ–ã€CSSå‹ç¼©
  *
- * ±¾³ÌĞòÊ¹ÓÃ×î¼òµ¥µÄÔ­ÀíÊµÏÖ£¬Áí´æÎª¾Í¿ÉÒÔÔÚ±¾µØÊ¹ÓÃ
+ * æœ¬ç¨‹åºä½¿ç”¨æœ€ç®€å•çš„åŸç†å®ç°ï¼Œå¦å­˜ä¸ºå°±å¯ä»¥åœ¨æœ¬åœ°ä½¿ç”¨
  *
- * ¹©´ó¼Ò·½±ãÊ¹ÓÃ
+ * ä¾›å¤§å®¶æ–¹ä¾¿ä½¿ç”¨
  *
  */
 </textarea><br />
-<input id="btn" type="button" value="»ìÏı" class="btn1"  />
-<input id="btnDecode" type="button" value="½â»ìÏı" class="btn1"  />
-<input id="btnJSFormat" type="button" value="JS¸ñÊ½»¯" class="btn1"  />
-<input id="btnJSYS" type="button" value="JSÑ¹Ëõ" class="btn1"  />
-<input id="btnCSSFormat" type="button" value="CSS¸ñÊ½»¯" class="btn1"  />
-<input id="btnCSSYS" type="button" value="CSSÑ¹Ëõ" class="btn1"  />
+<input id="btn" type="button" value="æ··æ·†" class="btn1"  />
+<input id="btnDecode" type="button" value="è§£æ··æ·†" class="btn1"  />
+<input id="btnJSFormat" type="button" value="JSæ ¼å¼åŒ–" class="btn1"  />
+<input id="btnJSYS" type="button" value="JSå‹ç¼©" class="btn1"  />
+<input id="btnCSSFormat" type="button" value="CSSæ ¼å¼åŒ–" class="btn1"  />
+<input id="btnCSSYS" type="button" value="CSSå‹ç¼©" class="btn1"  />
 </div>
 </body>
 </html>
